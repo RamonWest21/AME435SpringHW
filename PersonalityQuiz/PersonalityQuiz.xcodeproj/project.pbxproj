@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		3F8ABBE823FC68D4007638E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBE723FC68D4007638E8 /* AppDelegate.swift */; };
 		3F8ABBEA23FC68D4007638E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBE923FC68D4007638E8 /* SceneDelegate.swift */; };
-		3F8ABBEC23FC68D4007638E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBEB23FC68D4007638E8 /* ViewController.swift */; };
+		3F8ABBEC23FC68D4007638E8 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBEB23FC68D4007638E8 /* IntroductionViewController.swift */; };
 		3F8ABBEF23FC68D4007638E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8ABBED23FC68D4007638E8 /* Main.storyboard */; };
 		3F8ABBF123FC68D5007638E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8ABBF023FC68D5007638E8 /* Assets.xcassets */; };
 		3F8ABBF423FC68D5007638E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8ABBF223FC68D5007638E8 /* LaunchScreen.storyboard */; };
+		3FB6B9D523FDC7AA00CFBC35 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6B9D423FDC7AA00CFBC35 /* QuestionViewController.swift */; };
+		3FB6B9D723FDC7C300CFBC35 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6B9D623FDC7C300CFBC35 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F8ABBE423FC68D4007638E8 /* PersonalityQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalityQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8ABBE723FC68D4007638E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F8ABBE923FC68D4007638E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F8ABBEB23FC68D4007638E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F8ABBEB23FC68D4007638E8 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		3F8ABBEE23FC68D4007638E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F8ABBF023FC68D5007638E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F8ABBF323FC68D5007638E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F8ABBF523FC68D5007638E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FB6B9CD23FDC75500CFBC35 /* PersonalityQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PersonalityQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
+		3FB6B9D423FDC7AA00CFBC35 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		3FB6B9D623FDC7C300CFBC35 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +63,14 @@
 			children = (
 				3F8ABBE723FC68D4007638E8 /* AppDelegate.swift */,
 				3F8ABBE923FC68D4007638E8 /* SceneDelegate.swift */,
-				3F8ABBEB23FC68D4007638E8 /* ViewController.swift */,
+				3F8ABBEB23FC68D4007638E8 /* IntroductionViewController.swift */,
+				3FB6B9D423FDC7AA00CFBC35 /* QuestionViewController.swift */,
+				3FB6B9D623FDC7C300CFBC35 /* ResultsViewController.swift */,
 				3F8ABBED23FC68D4007638E8 /* Main.storyboard */,
 				3F8ABBF023FC68D5007638E8 /* Assets.xcassets */,
 				3F8ABBF223FC68D5007638E8 /* LaunchScreen.storyboard */,
 				3F8ABBF523FC68D5007638E8 /* Info.plist */,
+				3FB6B9CD23FDC75500CFBC35 /* PersonalityQuiz-Bridging-Header.h */,
 			);
 			path = PersonalityQuiz;
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 				TargetAttributes = {
 					3F8ABBE323FC68D4007638E8 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -138,8 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8ABBEC23FC68D4007638E8 /* ViewController.swift in Sources */,
+				3F8ABBEC23FC68D4007638E8 /* IntroductionViewController.swift in Sources */,
 				3F8ABBE823FC68D4007638E8 /* AppDelegate.swift in Sources */,
+				3FB6B9D523FDC7AA00CFBC35 /* QuestionViewController.swift in Sources */,
+				3FB6B9D723FDC7C300CFBC35 /* ResultsViewController.swift in Sources */,
 				3F8ABBEA23FC68D4007638E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PersonalityQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,6 +304,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ame.asu.edu.PersonalityQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PersonalityQuiz/PersonalityQuiz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -301,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PersonalityQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -309,6 +324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ame.asu.edu.PersonalityQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PersonalityQuiz/PersonalityQuiz-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
