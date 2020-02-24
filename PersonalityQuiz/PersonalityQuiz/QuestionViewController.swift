@@ -99,9 +99,9 @@ class QuestionViewController: UIViewController {
                  type: .single,
                  answers: [
                     Answer(text: "Steak", type: .dog),
-                    Answer(text: "Hair ball and your Hamster that ran away", type: .cat),
+                    Answer(text: "Your pet hamster", type: .cat),
                     Answer(text: "Carrots", type: .rabbit),
-                    Answer(text: "Turtle Food", type: .turtle)
+                    Answer(text: "Turtle food", type: .turtle)
                 ]),
        
         Question(text: "Which activities do you enjoy?",
@@ -110,7 +110,7 @@ class QuestionViewController: UIViewController {
                     Answer(text: "Swimming", type: .dog),
                     Answer(text: "Clawing away at your new furniture", type: .cat),
                     Answer(text: "Cuddling", type: .rabbit),
-                    Answer(text: "Eating Turtle Food", type: .turtle)
+                    Answer(text: "Eating turtle food", type: .turtle)
                     ]),
         
         Question(text: "How much do you enjoy car rides?",
