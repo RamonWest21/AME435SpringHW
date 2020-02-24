@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5924152404345000246CC4 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5924142404345000246CC4 /* QuestionData.swift */; };
 		3F8ABBE823FC68D4007638E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBE723FC68D4007638E8 /* AppDelegate.swift */; };
 		3F8ABBEA23FC68D4007638E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBE923FC68D4007638E8 /* SceneDelegate.swift */; };
 		3F8ABBEC23FC68D4007638E8 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8ABBEB23FC68D4007638E8 /* IntroductionViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F5924142404345000246CC4 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		3F8ABBE423FC68D4007638E8 /* PersonalityQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalityQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8ABBE723FC68D4007638E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F8ABBE923FC68D4007638E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				3FB6B9D423FDC7AA00CFBC35 /* QuestionViewController.swift */,
 				3FB6B9D623FDC7C300CFBC35 /* ResultsViewController.swift */,
 				3F8ABBED23FC68D4007638E8 /* Main.storyboard */,
+				3F5924142404345000246CC4 /* QuestionData.swift */,
 				3F8ABBF023FC68D5007638E8 /* Assets.xcassets */,
 				3F8ABBF223FC68D5007638E8 /* LaunchScreen.storyboard */,
 				3F8ABBF523FC68D5007638E8 /* Info.plist */,
@@ -150,6 +153,7 @@
 				3F8ABBEC23FC68D4007638E8 /* IntroductionViewController.swift in Sources */,
 				3F8ABBE823FC68D4007638E8 /* AppDelegate.swift in Sources */,
 				3FB6B9D523FDC7AA00CFBC35 /* QuestionViewController.swift in Sources */,
+				3F5924152404345000246CC4 /* QuestionData.swift in Sources */,
 				3FB6B9D723FDC7C300CFBC35 /* ResultsViewController.swift in Sources */,
 				3F8ABBEA23FC68D4007638E8 /* SceneDelegate.swift in Sources */,
 			);

@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="48.5" width="313" height="30"/>
                                         <state key="normal" title="Begin Personality Quiz"/>
                                         <connections>
-                                            <segue destination="0JN-S7-URn" kind="show" id="cQs-ch-NTx"/>
+                                            <segue destination="0JN-S7-URn" kind="show" id="bmJ-MH-xmc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -201,13 +201,28 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1r-ll-z9H">
+                                <rect key="frame" x="0.0" y="96" width="375" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ckd-rp-Nqi">
+                                <rect key="frame" x="16" y="625" width="343" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SaW-4l-3cB" firstAttribute="trailing" secondItem="Ret-YV-N96" secondAttribute="trailing" constant="20" id="18t-im-JGt"/>
+                            <constraint firstItem="ckd-rp-Nqi" firstAttribute="leading" secondItem="Kfk-0i-sIx" secondAttribute="leadingMargin" id="8AO-OW-i9V"/>
+                            <constraint firstItem="f1r-ll-z9H" firstAttribute="top" secondItem="SaW-4l-3cB" secondAttribute="top" constant="40" id="9Eh-fz-ahn"/>
                             <constraint firstItem="Ret-YV-N96" firstAttribute="leading" secondItem="SaW-4l-3cB" secondAttribute="leading" constant="20" id="FdT-EG-wCC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ckd-rp-Nqi" secondAttribute="trailing" id="Fzj-sR-NgE"/>
+                            <constraint firstItem="SaW-4l-3cB" firstAttribute="trailing" secondItem="f1r-ll-z9H" secondAttribute="trailing" id="Vkz-tI-sC3"/>
+                            <constraint firstItem="SaW-4l-3cB" firstAttribute="bottom" secondItem="ckd-rp-Nqi" secondAttribute="bottom" constant="20" id="hXN-S7-1R1"/>
                             <constraint firstItem="Ret-YV-N96" firstAttribute="centerY" secondItem="Kfk-0i-sIx" secondAttribute="centerY" id="jYa-kj-ZzP"/>
                             <constraint firstItem="bOE-Pw-EAc" firstAttribute="leading" secondItem="SaW-4l-3cB" secondAttribute="leading" constant="20" id="jdT-ss-QR2"/>
+                            <constraint firstItem="f1r-ll-z9H" firstAttribute="leading" secondItem="SaW-4l-3cB" secondAttribute="leading" id="rJ8-Zu-5fY"/>
                             <constraint firstItem="kIi-vD-raQ" firstAttribute="leading" secondItem="SaW-4l-3cB" secondAttribute="leading" id="t3W-6I-2Mf"/>
                             <constraint firstItem="SaW-4l-3cB" firstAttribute="trailing" secondItem="bOE-Pw-EAc" secondAttribute="trailing" constant="20" id="zLp-AU-srm"/>
                         </constraints>
@@ -215,6 +230,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="hsK-bG-B4Q"/>
                     <connections>
+                        <outlet property="multiLabel1" destination="GlQ-GC-0DQ" id="smQ-cG-oQl"/>
+                        <outlet property="multiLabel2" destination="M5q-lf-PjY" id="Xwq-PB-LRb"/>
+                        <outlet property="multiLabel3" destination="YiX-5e-DYh" id="s4t-wY-Tjv"/>
+                        <outlet property="multiLabel4" destination="dDm-oJ-YHo" id="4Db-sH-sbK"/>
+                        <outlet property="multipleStackView" destination="bOE-Pw-EAc" id="Qb2-tA-Jut"/>
+                        <outlet property="questionProgressView" destination="ckd-rp-Nqi" id="7f9-nL-C1j"/>
+                        <outlet property="rangeLabel1" destination="T8C-Ve-Nos" id="EG1-9O-dcn"/>
+                        <outlet property="rangeLabel2" destination="gh6-1V-dnm" id="frZ-oC-iuX"/>
+                        <outlet property="rangedStackView" destination="Ret-YV-N96" id="6ft-Ur-JcZ"/>
+                        <outlet property="singleButton1" destination="YR7-wF-kse" id="Lz3-rB-gVR"/>
+                        <outlet property="singleButton2" destination="0Fg-mN-U0T" id="D8P-DC-a1Q"/>
+                        <outlet property="singleButton3" destination="BAF-9l-1L5" id="PXR-Ee-Kxu"/>
+                        <outlet property="singleButton4" destination="qWX-kw-jTW" id="Il0-Ps-R40"/>
+                        <outlet property="singleStackView" destination="kIi-vD-raQ" id="Pjk-HJ-YaL"/>
                         <segue destination="LDF-8F-ECp" kind="show" identifier="ResultsSegue" id="uyd-uH-mOE"/>
                     </connections>
                 </viewController>
@@ -225,7 +254,6 @@
         <!--Results-->
         <scene sceneID="c01-OK-ZUI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J2k-7S-A6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="LDF-8F-ECp" customClass="ResultsViewController" customModule="PersonalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hSb-MV-mdu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
@@ -260,6 +288,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="sVQ-tJ-sLL"/>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2k-7S-A6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2671.1999999999998" y="136.28185907046478"/>
         </scene>
