@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import CoreLocation
 
-struct ToDo {
+struct ToDo: Codable {
     var title: String
     var isComplete: Bool
     var dueDate: Date
     var notes: String?
     
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("todos").appendingPathExtension("plist")
+    
     static func loadToDos() -> [ToDo]? {
-        return nil
+        guard let codedTodos = try? Date(contentsOf:ArchiveURL) else { return nil}
+        let propertyListDecoder = PropertyListDecoder()
+        return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedTodos)
+        
     }
     
     static func loadSampleToDos() -> [ToDo] {
@@ -26,6 +33,20 @@ struct ToDo {
         return [todo1, todo2, todo3]
     }
     
+   
+    
+    static let dueDateFormatter: DataFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }
+    
+    static func saveTodos(_ todos: [ToDo]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let codedTodos = try? PropertyListEncoder.encode(todos)
+        try? codedTodos?.write(to:ArchiveURL, options: .noFileProtection)
+    }
     
 }
 

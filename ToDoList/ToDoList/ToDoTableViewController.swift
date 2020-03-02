@@ -11,6 +11,10 @@ import UIKit
 class ToDoTableViewController: UITableViewController {
     var todos = [ToDo]()
     
+    @IBAction func unwindToToDoList(seque: UIStoryboardSegue){
+        
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
@@ -24,6 +28,17 @@ class ToDoTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +46,8 @@ class ToDoTableViewController: UITableViewController {
             todos = savedToDos
         }
         else {
-            ToDo.loadSampleToDos()
+            todos = ToDo.loadSampleToDos()
         }
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 }
