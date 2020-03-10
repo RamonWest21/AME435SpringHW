@@ -19,9 +19,10 @@ struct ToDo: Codable {
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("todos").appendingPathExtension("plist")
     
     static func loadToDos() -> [ToDo]? {
-        guard let codedTodos = try? Date(contentsOf:ArchiveURL) else { return nil}
-        let propertyListDecoder = PropertyListDecoder()
-        return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedTodos)
+        return nil
+//        guard let codedTodos = try? Date(contentsOf:ArchiveURL) else { return nil}
+//        let propertyListDecoder = PropertyListDecoder()
+//        return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedTodos)
         
     }
     
@@ -35,18 +36,18 @@ struct ToDo: Codable {
     
    
     
-    static let dueDateFormatter: DataFormatter = {
+    static let dueDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
         return formatter
-    }
-    
-    static func saveTodos(_ todos: [ToDo]) {
-        let propertyListEncoder = PropertyListEncoder()
-        let codedTodos = try? PropertyListEncoder.encode(todos)
-        try? codedTodos?.write(to:ArchiveURL, options: .noFileProtection)
-    }
+    }()
+//    
+//    static func saveTodos(_ todos: [ToDo]) {
+//        let propertyListEncoder = PropertyListEncoder()
+//        let codedTodos = try? PropertyListEncoder.encode(todos)
+//        try? codedTodos?.write(to:ArchiveURL, options: .noFileProtection)
+//    }
     
 }
 
