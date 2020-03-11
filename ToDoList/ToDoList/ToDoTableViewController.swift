@@ -11,16 +11,23 @@ import UIKit
 class ToDoTableViewController: UITableViewController {
     var todos = [ToDo]()
     
-    @IBAction func unwindToToDoList(seque: UIStoryboardSegue){
-        
-    }
+//    @IBAction func unwindToToDoList(seque: UIStoryboardSegue){
+//        guard segue.identifier == "saveUnwind" else {return}
+//        let sourceViewController = segue.source as! ToDoViewController
+//        
+//        if let todo = sourceViewController.todo {
+//            let newIndexPath = IndexPath(row: todos.count, section: 0)
+//            todos.append(todo)
+//            tableView.insertRows(at: [newIndexPath], with: .automatic)
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier") as? ToDoCell else {
                 fatalError("Could not dequeue a cell")
             }
         let todo = todos[indexPath.row]
@@ -37,6 +44,18 @@ class ToDoTableViewController: UITableViewController {
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // page 758
+        if segue.identifier == "showDetails" {
+            let todoViewController = segue.destination as! ToDoViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedTodo = todos[indexPath.row]
+            todoViewController.todo = selectedTodo
+        }
+        
     }
     
     override func viewDidLoad() {
