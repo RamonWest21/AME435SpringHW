@@ -17,7 +17,6 @@ class ToDoViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var isPickerHidden = true
-    var todos = [ToDo]()
     var todo: ToDo?
     
     
@@ -106,21 +105,6 @@ class ToDoViewController: UITableViewController {
         updateDueDateLabel(date: dueDatePickerView.date)
     }
     
-    @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
-        guard segue.identifier == "saveUnwind" else {return}
-        let sourceViewController = segue.source as! ToDoViewController
-        
-        if let todo = sourceViewController.todo {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                todos[selectedIndexPath.row] = todo
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                let newIndexPath = IndexPath(row: todos.count, section: 0)
-                todos.append(todo)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-        }
-    }
     
     func updateSaveButtonState() {
         let text = titleTextField.text ?? ""
