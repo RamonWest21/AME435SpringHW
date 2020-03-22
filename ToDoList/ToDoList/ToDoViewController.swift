@@ -9,6 +9,7 @@
 import UIKit
 
 class ToDoViewController: UITableViewController {
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var isCompleteButton: UIButton!
     @IBOutlet weak var dueDateLabel: UILabel!
@@ -19,66 +20,64 @@ class ToDoViewController: UITableViewController {
     var isPickerHidden = true
     var todo: ToDo?
     
+    func updateSaveButtonState() {
+        let text = titleTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
+    
+    func updateDueDateLabel(date: Date) {
+        dueDateLabel.text = ToDo.dueDateFormatter.string(from: date )
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let todo = todo {
             navigationItem.title = "To-Do"
             titleTextField.text = todo.title
             isCompleteButton.isSelected = todo.isComplete
             dueDatePickerView.date = todo.dueDate
             notesTextView.text = todo.notes
-        } else { // default todo
-           dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
+        } else {
+            dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
         }
-       
         updateDueDateLabel(date: dueDatePickerView.date)
         updateSaveButtonState()
-        
-        
     }
-    // dynamic cell height for Date picker
-    override func tableView(_ tableView: UITableView, heightForRowAt
-        indexPath: IndexPath) -> CGFloat {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         let normalCellHeight = CGFloat(44)
         let largeCellHeight = CGFloat(200)
-
-        switch(indexPath){
+        
+        switch(indexPath) {
+        case [1,0]:
+            return isPickerHidden ? normalCellHeight : largeCellHeight
             
-        case [1, 0]: // Due Date cell
-            return isPickerHidden ? normalCellHeight:
-            largeCellHeight
-
-        case [2,0]: // Notes Cell
+        case [2,0]:
             return largeCellHeight
-
+            
         default: return normalCellHeight
+            
         }
     }
-    // dynamic cell height for Notes
-    override func tableView(_ tableView: UITableView, didSelectRowAt
-        indexPath: IndexPath){
-        
-        switch(indexPath){
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath) {
         case [1,0]:
             isPickerHidden = !isPickerHidden
-
+            
             dueDateLabel.textColor = isPickerHidden ? .black : tableView.tintColor
-
+            
             tableView.beginUpdates()
             tableView.endUpdates()
-
+            
         default: break
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // page 755
         super.prepare(for: segue, sender: sender)
         
-        guard segue.identifier == "saveUnwind" else {return}
+        guard segue .identifier == "saveUnwind" else { return }
         
         let title = titleTextField.text!
         let isComplete = isCompleteButton.isSelected
@@ -86,7 +85,6 @@ class ToDoViewController: UITableViewController {
         let notes = notesTextView.text
         
         todo = ToDo(title: title, isComplete: isComplete, dueDate: dueDate, notes: notes)
-        
     }
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
@@ -101,17 +99,9 @@ class ToDoViewController: UITableViewController {
         isCompleteButton.isSelected = !isCompleteButton.isSelected
     }
     
+    
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         updateDueDateLabel(date: dueDatePickerView.date)
     }
     
-    
-    func updateSaveButtonState() {
-        let text = titleTextField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
-    }
-    
-    func updateDueDateLabel(date: Date) {
-        dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
-    }
 }
