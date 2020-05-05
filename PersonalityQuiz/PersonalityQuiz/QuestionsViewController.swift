@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
+class QuestionsViewController: UIViewController {
 
     /*
     // MARK: - Navigation

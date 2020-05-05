@@ -161,11 +161,12 @@
                                             <constraints>
                                                 <constraint firstItem="XPn-fw-bcb" firstAttribute="leading" secondItem="5qD-4j-45l" secondAttribute="leading" constant="20" symbolic="YES" id="4Wz-OY-fED"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bbD-wy-bLD" secondAttribute="trailing" constant="16" id="9mM-7P-9CK"/>
+                                                <constraint firstItem="bbD-wy-bLD" firstAttribute="leading" secondItem="aPW-1t-nzw" secondAttribute="trailing" constant="197.5" id="BF5-rB-775"/>
                                                 <constraint firstItem="bbD-wy-bLD" firstAttribute="top" secondItem="5qD-4j-45l" secondAttribute="topMargin" constant="11" id="Gho-8V-W7A"/>
                                                 <constraint firstAttribute="trailing" secondItem="XPn-fw-bcb" secondAttribute="trailing" constant="20" symbolic="YES" id="RWt-5a-H6v"/>
                                                 <constraint firstItem="XPn-fw-bcb" firstAttribute="top" secondItem="5qD-4j-45l" secondAttribute="top" constant="40" id="a9e-PB-N5L"/>
                                                 <constraint firstItem="aPW-1t-nzw" firstAttribute="top" secondItem="5qD-4j-45l" secondAttribute="topMargin" constant="11" id="fQb-iO-kOg"/>
-                                                <constraint firstItem="aPW-1t-nzw" firstAttribute="leading" secondItem="5qD-4j-45l" secondAttribute="leadingMargin" constant="16" id="lNX-5j-L2T"/>
+                                                <constraint firstItem="aPW-1t-nzw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5qD-4j-45l" secondAttribute="leadingMargin" id="lNX-5j-L2T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -208,10 +209,77 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" mapType="standard" showsUserLocation="YES" id="KIJ-RJ-sKw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                    <rect key="frame" x="0.0" y="53" width="375" height="247"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </mapView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15G-L4-ccG" userLabel="locationButton">
+                                                    <rect key="frame" x="16" y="15" width="30" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="K4a-No-IVN"/>
+                                                        <constraint firstAttribute="height" constant="30" id="YEq-zG-7cR"/>
+                                                    </constraints>
+                                                    <state key="normal" image="location" catalog="system"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="locationButtonTapped:" destination="fBW-UR-kjS" eventType="touchUpInside" id="rKP-OR-79P"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaN-hB-kX8" userLabel="annotateButton">
+                                                    <rect key="frame" x="54" y="15" width="30" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="DRO-gx-Orm"/>
+                                                        <constraint firstAttribute="width" constant="30" id="Jor-uo-FVW"/>
+                                                    </constraints>
+                                                    <state key="normal" image="flag" catalog="system"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="annotateButtonTapped:" destination="fBW-UR-kjS" eventType="touchUpInside" id="tq2-Ra-ZVN"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRO-KG-oHG" userLabel="deleteButton">
+                                                    <rect key="frame" x="92" y="15" width="30" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="0pB-wF-nuH"/>
+                                                        <constraint firstAttribute="height" constant="30" id="DY5-Sk-hYc"/>
+                                                    </constraints>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-zh-RBR">
+                                                    <rect key="frame" x="130" y="11" width="229" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="fMl-rI-Jps"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DaN-hB-kX8" firstAttribute="leading" secondItem="15G-L4-ccG" secondAttribute="trailing" constant="8" id="42z-gO-ohP"/>
+                                                <constraint firstItem="15G-L4-ccG" firstAttribute="top" secondItem="MRO-KG-oHG" secondAttribute="top" id="6Ac-lO-WKE"/>
+                                                <constraint firstItem="15G-L4-ccG" firstAttribute="bottom" secondItem="X4h-zh-RBR" secondAttribute="bottom" id="8Zn-ja-Wu5"/>
+                                                <constraint firstItem="X4h-zh-RBR" firstAttribute="trailing" secondItem="oAc-Zc-JIQ" secondAttribute="trailingMargin" id="9Yp-FT-OcH"/>
+                                                <constraint firstItem="15G-L4-ccG" firstAttribute="baseline" secondItem="DaN-hB-kX8" secondAttribute="baseline" id="DGM-sg-oA4"/>
+                                                <constraint firstItem="X4h-zh-RBR" firstAttribute="leading" secondItem="MRO-KG-oHG" secondAttribute="trailing" constant="8" id="OEH-vI-mMz"/>
+                                                <constraint firstItem="KIJ-RJ-sKw" firstAttribute="top" secondItem="15G-L4-ccG" secondAttribute="bottom" constant="8" id="Ugx-CZ-Br3"/>
+                                                <constraint firstItem="MRO-KG-oHG" firstAttribute="leading" secondItem="DaN-hB-kX8" secondAttribute="trailing" constant="8" id="nvG-Hl-xxj"/>
+                                                <constraint firstItem="15G-L4-ccG" firstAttribute="leading" secondItem="oAc-Zc-JIQ" secondAttribute="leadingMargin" id="w85-9E-1Th"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -284,6 +352,9 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
         <image name="circle" catalog="system" width="64" height="60"/>
+        <image name="flag" catalog="system" width="64" height="60"/>
+        <image name="location" catalog="system" width="64" height="56"/>
+        <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hjG-15-wCd"/>
