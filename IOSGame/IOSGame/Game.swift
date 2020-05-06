@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 class Game: SKScene, SKPhysicsContactDelegate {
     
@@ -16,6 +17,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         backgroundColor = SKColor.black
         
         // Create Dispenser
+        
         let dispencer = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 30, height: 30))
         dispencer.position = CGPoint(x: frame.midX, y: frame.height - 20)
         dispencer.name = "Dispencer"
@@ -24,22 +26,20 @@ class Game: SKScene, SKPhysicsContactDelegate {
         // Ground not affected by gravity. isDynamic = false
         dispencerBody.affectedByGravity = false
         dispencerBody.friction = 0.0
-        //let force = CGVector(dx: 10.0, dy: 0.0)
-        //dispencerBody.applyForce(force)
-        //dispencerBody.velocity = CGVector(dx: 1.0, dy: 0.0)
         dispencerBody.contactTestBitMask = 1
         dispencer.physicsBody = dispencerBody
         let action = SKAction.sequence([
             SKAction.applyImpulse(CGVector(dx: 10.0, dy: 0.0), duration: 0.5)
         ])
-        
+
         dispencer.run(action)
         addChild(dispencer)
         
+        print(dispencer.position)
+        
         // Create base
-        let node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 50, height: 50))
-        node.position = CGPoint(x:frame.midX, y: frame.midY)
-        node.zRotation = 1.0 // rotate in radians
+        let node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 80, height: 20))
+        node.position = CGPoint(x:frame.midX + CGFloat.random(in: -100 ... 100), y: 50)
         node.name = "Base"
         // Objects require an SKPhysicsBody to participate in the physics system
         let body = SKPhysicsBody(rectangleOf: node.size)
@@ -95,6 +95,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
         node.physicsBody = body
         addChild(node)
         
+        let bloom = SKAction.playSoundFileNamed("Blop-Mark_DiAngelo-79054334.wav", waitForCompletion: false)
+        self.run(bloom)
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -116,40 +119,62 @@ class Game: SKScene, SKPhysicsContactDelegate {
             guard let node = nodeA as? SKSpriteNode else { return }
             moveRight(node: node)
         }
-        
+
         else if nameA == "Left Wall" && nameB == "Dispencer" {
             guard let node = nodeB as? SKSpriteNode else { return }
             moveRight(node: node)
         }
-        
+
         if nameA == "Dispencer" && nameB == "Right Wall" {
             guard let node = nodeA as? SKSpriteNode else { return }
             moveLeft(node: node)
         }
-        
+
         else if nameA == "Right Wall" && nameB == "Dispencer" {
             guard let node = nodeB as? SKSpriteNode else { return }
             moveLeft(node: node)
+        }
+        
+        if nameA == "Dispencer" && nameB == "Green" {
+            guard let node = nodeA as? SKSpriteNode else { return }
+            explosion(node: node)
+            let scene = GameOver(size: size)
+            if let view = view{
+                let transition = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
+                view.presentScene(scene, transition: transition)
+            }
+        }
+
+        else if nameA == "Green" && nameB == "Dispencer" {
+            guard let node = nodeB as? SKSpriteNode else { return }
+            explosion(node: node)
+            let scene = GameOver(size: size)
+            if let view = view{
+                let transition = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
+                view.presentScene(scene, transition: transition)
+            }
         }
     }
     
     func moveLeft(node: SKSpriteNode) {
         let action = SKAction.sequence([
-            SKAction.applyForce(CGVector(dx: -10.0, dy: 0.0), duration: 1)
+            SKAction.applyForce(CGVector(dx: -10.0, dy: 0.0), duration: 0.25)
         ])
         node.run(action)
     }
     
     func moveRight(node: SKSpriteNode){
         let action = SKAction.sequence([
-            SKAction.applyForce(CGVector(dx: 10.0, dy: 0.0), duration: 1)
+            SKAction.applyForce(CGVector(dx: 10.0, dy: 0.0), duration: 0.25)
         ])
         node.run(action)
     }
     
     func explosion(node: SKSpriteNode){
         for _ in 1 ... 10 {
+            let explosionSound = SKAction.playSoundFileNamed("Punch_HD-Mark_DiAngelo-1718986183.wav", waitForCompletion: false)
             debris(node: node)
+            self.run(explosionSound)
         }
         node.removeFromParent()
         
@@ -178,6 +203,5 @@ class Game: SKScene, SKPhysicsContactDelegate {
         ])
         
         thing.run(action)
-        
     }
 }

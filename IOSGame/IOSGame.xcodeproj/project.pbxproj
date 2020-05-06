@@ -15,6 +15,10 @@
 		3F712D6B2461C21B002F14CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F712D692461C21B002F14CC /* LaunchScreen.storyboard */; };
 		3F712D732461C285002F14CC /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F712D722461C285002F14CC /* Intro.swift */; };
 		3F712D7524620CE1002F14CC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F712D7424620CE1002F14CC /* Game.swift */; };
+		3F712D7724623C4C002F14CC /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F712D7624623C4C002F14CC /* GameOver.swift */; };
+		3F712D792462449F002F14CC /* 1_person_cheering-Jett_Rifkin-1851518140.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F712D782462449F002F14CC /* 1_person_cheering-Jett_Rifkin-1851518140.wav */; };
+		3F712D7B246244AC002F14CC /* Punch_HD-Mark_DiAngelo-1718986183.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F712D7A246244AC002F14CC /* Punch_HD-Mark_DiAngelo-1718986183.wav */; };
+		3F712D7D246244B4002F14CC /* Blop-Mark_DiAngelo-79054334.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F712D7C246244B4002F14CC /* Blop-Mark_DiAngelo-79054334.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		3F712D6C2461C21B002F14CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F712D722461C285002F14CC /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 		3F712D7424620CE1002F14CC /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3F712D7624623C4C002F14CC /* GameOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		3F712D782462449F002F14CC /* 1_person_cheering-Jett_Rifkin-1851518140.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "1_person_cheering-Jett_Rifkin-1851518140.wav"; sourceTree = "<group>"; };
+		3F712D7A246244AC002F14CC /* Punch_HD-Mark_DiAngelo-1718986183.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Punch_HD-Mark_DiAngelo-1718986183.wav"; sourceTree = "<group>"; };
+		3F712D7C246244B4002F14CC /* Blop-Mark_DiAngelo-79054334.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Blop-Mark_DiAngelo-79054334.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			children = (
 				3F712D722461C285002F14CC /* Intro.swift */,
 				3F712D7424620CE1002F14CC /* Game.swift */,
+				3F712D7624623C4C002F14CC /* GameOver.swift */,
 				3F712D5E2461C217002F14CC /* AppDelegate.swift */,
 				3F712D602461C217002F14CC /* SceneDelegate.swift */,
 				3F712D622461C217002F14CC /* ViewController.swift */,
@@ -69,6 +78,9 @@
 				3F712D672461C21B002F14CC /* Assets.xcassets */,
 				3F712D692461C21B002F14CC /* LaunchScreen.storyboard */,
 				3F712D6C2461C21B002F14CC /* Info.plist */,
+				3F712D7A246244AC002F14CC /* Punch_HD-Mark_DiAngelo-1718986183.wav */,
+				3F712D782462449F002F14CC /* 1_person_cheering-Jett_Rifkin-1851518140.wav */,
+				3F712D7C246244B4002F14CC /* Blop-Mark_DiAngelo-79054334.wav */,
 			);
 			path = IOSGame;
 			sourceTree = "<group>";
@@ -131,9 +143,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F712D792462449F002F14CC /* 1_person_cheering-Jett_Rifkin-1851518140.wav in Resources */,
 				3F712D6B2461C21B002F14CC /* LaunchScreen.storyboard in Resources */,
 				3F712D682461C21B002F14CC /* Assets.xcassets in Resources */,
 				3F712D662461C217002F14CC /* Main.storyboard in Resources */,
+				3F712D7D246244B4002F14CC /* Blop-Mark_DiAngelo-79054334.wav in Resources */,
+				3F712D7B246244AC002F14CC /* Punch_HD-Mark_DiAngelo-1718986183.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +162,7 @@
 				3F712D632461C217002F14CC /* ViewController.swift in Sources */,
 				3F712D7524620CE1002F14CC /* Game.swift in Sources */,
 				3F712D5F2461C217002F14CC /* AppDelegate.swift in Sources */,
+				3F712D7724623C4C002F14CC /* GameOver.swift in Sources */,
 				3F712D732461C285002F14CC /* Intro.swift in Sources */,
 				3F712D612461C217002F14CC /* SceneDelegate.swift in Sources */,
 			);

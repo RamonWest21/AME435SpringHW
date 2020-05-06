@@ -15,10 +15,22 @@ class Intro: SKScene {
         backgroundColor = SKColor.blue
         
         let node = SKLabelNode(fontNamed: "Futura")
-        node.fontSize = 48
+        node.fontSize = 32
         node.position = CGPoint(x: frame.midX, y: frame.midY)
-        node.text = "Hello"
+        node.text = "Welcome to Stacker!"
         addChild(node)
+        
+        let instructions1 = SKLabelNode(fontNamed: "Futura")
+        instructions1.fontSize = 32
+        instructions1.position = CGPoint(x: frame.midX, y: frame.midY - 60)
+        instructions1.text = "Stack the green squares"
+        addChild(instructions1)
+        
+        let instructions2 = SKLabelNode(fontNamed: "Futura")
+        instructions2.fontSize = 32
+        instructions2.position = CGPoint(x: frame.midX, y: frame.midY - 120)
+        instructions2.text = "to reach the blue square!"
+        addChild(instructions2)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
